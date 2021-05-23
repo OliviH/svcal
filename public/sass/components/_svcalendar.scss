@@ -1,0 +1,75 @@
+.svcal {
+    &__container {
+        --button-bg: rgb(242, 243, 244);
+        --button-bgh: rgb(133, 146, 158);
+        --border-color: rgb(236, 240, 241);
+        --color-disable: rgb(229, 232, 232);
+        --color-enable: rgb(84, 153, 199);
+        --dayname-color: rgb(133, 146, 158);
+        width: min(51rem, 98%);
+        margin: 0 auto;
+        aspect-ratio: 16 / 9;
+        border: 1px solid var(--border-color);
+        border-radius: .5em;
+        box-sizing: border-box;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: .3em;
+        border-bottom: 1px solid var(--border-color);
+        padding: .3em;
+        margin-bottom: .3em;
+    }
+    &__content {
+        display: grid;
+        height: 100%;
+    }
+    &--visible {
+        display: block;
+        height: 100%;;
+    }
+    &--month {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1em repeat(6, 1fr);
+        height: 100%;
+    }
+    &__dayname {
+        font-size: .8em;
+        line-height: 1em;
+        padding-left:1em;
+        color: var(--dayname-color);
+        font-weight: 100;
+    }
+    &__button {
+        cursor: pointer;
+        border: none;
+        padding: .3em .3em .1em .3em;
+        background-color: var(--button-bg);
+        color: var(--button-bgh);
+        @include transition_eio('background-color, color');
+        &:hover {
+            background-color: var(--button-bgh);
+            color: var(--button-bg);
+        }
+    }
+    &--full {
+        width: 100%;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--color-disable);
+        border: 1px solid var(--border-color);
+        height: 100%
+    }
+    &--en {
+       color: var(--color-enable); 
+       cursor: pointer;
+    }
+}
